@@ -5,8 +5,9 @@ class StockPicking(osv.osv):
     _inherit = 'stock.picking'
 
     def picking_cancel_waiting_moves(self, cr, uid, ids, context=None):
+	move_obj = self.pool.get('stock.move')
         for picking in self.browse(cr, uid, ids):
-            move_obj.cancel_waiting_moves(cr, uid, picking.move_lines, context=context)
+            move_obj.cancel_waiting_moves(cr, uid, False, picking.move_lines, context=context)
 
         return True
 
