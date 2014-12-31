@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+        <record id="view_picking_cancel_receipt_form" model="ir.ui.view">
+            <field name="name">Picking Cancel Receipt Form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <button name="do_unreserve" position="after">
+                    <button name="picking_cancel_waiting_moves" type="object" string="Cancel ALL Pending Receipts" states="waiting" />
+                </button>
+            </field>
+        </record>
+	<record id="view_moves_cancel_receipt_form" model="ir.ui.view">
+	    <field name="name">Moves Cancel Receipt Form</field>
+	    <field name="model">stock.move</field>
+	    <field name="inherit_id" ref="stock.view_move_picking_form" />
+	    <field name="arch" type="xml">
+	        <button name="do_unreserve" position="after">
+		    <button name="cancel_waiting_moves" type="object" string="Cancel Pending Receipt" states="waiting" />
+		</button>
+	    </field>
+	</record>
+    </data>
+</openerp>
