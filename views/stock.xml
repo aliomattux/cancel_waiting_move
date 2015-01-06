@@ -16,7 +16,7 @@
 	    <field name="inherit_id" ref="stock.view_move_picking_form" />
 	    <field name="arch" type="xml">
 	        <button name="do_unreserve" position="after">
-		    <button name="cancel_waiting_moves" type="object" string="Cancel Pending Receipt" states="waiting" />
+		    <button name="button_cancel_waiting_moves" type="object" string="Cancel Pending Receipt" states="waiting" />
 		</button>
 	    </field>
 	</record>

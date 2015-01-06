@@ -15,6 +15,11 @@ class StockPicking(osv.osv):
 class StockMove(osv.osv):
     _inherit = 'stock.move'
 
+
+    def button_cancel_waiting_moves(self, cr, uid, ids, context=None):
+        return self.cancel_waiting_moves(cr, uid, ids, False, context=context)
+
+
     def cancel_waiting_moves(self, cr, uid, ids, moves=False, context=None):
 	picking_obj = self.pool.get('stock.picking')
 	#This should only be run from a single picking
